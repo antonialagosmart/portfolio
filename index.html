@@ -3,11 +3,10 @@
 
 <head>
     <meta charset="utf-8">
-    <title>ProMan - Personal Portfolio HTML Template</title>
+    <title>Ifeoluwa Odubiyi- Personal Portfolio</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
+    <meta name="keywords" content="web developer, software engineer, Laravel developer, backend developer, Odubiyi Ifeoluwa, Antonia Odubiyi">
+    <meta name="description" content="Welcome to the personal portfolio of Odubiyi Ifeoluwa, a skilled web developer and software engineer specializing in Laravel and backend development. Explore my projects and expertise.">
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -30,6 +29,48 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .btn-download {
+            background-color: #6244C5;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 120px;
+            font-size: 16px;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+    
+        .btn-download i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+    
+        .btn-download:hover i {
+            transform: translateY(-3px);
+        }
+    
+        .btn-download:hover {
+            background-color: #6244C5;
+        }
+    
+        /* Add motion effect */
+        .btn-download i {
+            animation: bounce 1s infinite;
+        }
+    
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
@@ -60,10 +101,30 @@
                     <div class="d-flex align-items-center pt-5">
                         <a href="https://github.com/T0niadev" class="btn btn-primary py-3 px-4 me-5">View GitHub</a>
                         <a href="https://www.linkedin.com/in/ifeoluwa-odubiyi-6572431a0" class="btn btn-secondary py-3 px-4 me-5">LinkedIn Profile</a>
-                        <button type="button" class="" data-bs-toggle="modal"
-                            data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
-                            <span></span>
+                        <button type="button" class="btn-download" data-bs-toggle="modal" data-bs-target="#fileModal">
+                            <i class="fa fa-download"></i> <span>Resume</span>
                         </button>
+
+                        <div class="modal fade" id="fileModal" tabindex="-1" aria-labelledby="fileModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="fileModalLabel">My Resume</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <!-- Embed the file (PDF or other file types) -->
+                                        <iframe src="file/resume.pdf" width="100%" height="500px"></iframe>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- Download Button -->
+                                        <a href="file/resume.pdf" class="btn btn-primary" download>
+                                            <i class="fa fa-download"></i> Download
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- <h5 class="ms-4 mb-0 d-none d-sm-block">Play Video</h5> -->
                     </div>
                 </div>
@@ -84,7 +145,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="d-flex align-items-center mb-5">
                         <div class="years flex-shrink-0 text-center me-4">
-                            <h1 class="display-1 mb-0">3+</h1>
+                            <h1 class="display-1 mb-0">4+</h1>
                             <h5 class="mb-0">Years</h5>
                         </div>
                         <h3 class="lh-base mb-0">of working experience as a Full-Stack Software Developer</h3>
@@ -94,28 +155,27 @@
                     </p>
                     <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Scalable Software Solutions</p>
                     <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Secure and High-Performance Systems</p>
+                    <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Robust API Design and Implementation for Seamless Integrations</p>
                     <p class="mb-3"><i class="far fa-check-circle text-primary me-3"></i>Continuous Integration and Delivery</p>
                     <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
                 </div>
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="row g-3 mb-4">
-                        <div class="col-sm-6">
-                            <img class="img-fluid rounded" src="img/about-1.jpg" alt="">
-                        </div>
-                        <div class="col-sm-6">
-                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
+                        <div class="col-sm-12 text-center">
+                            
+                            <img class="img-fluid rounded" src="img/des2.jpg" alt="">
                         </div>
                     </div>
                     <div class="d-flex align-items-center mb-3">
                         <h5 class="border-end pe-3 me-3 mb-0">Projects Completed</h5>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">20+</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">10</h2>
                     </div>
                     <p class="mb-4">
                         I have successfully led and contributed to several key projects, including payroll systems, attendance management, event management platforms, and cloud services payment integrations, among others.
                     </p>
                     <div class="d-flex align-items-center mb-3">
                         <h5 class="border-end pe-3 me-3 mb-0">Satisfied Clients</h5>
-                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">10+</h2>
+                        <h2 class="text-primary fw-bold mb-0" data-toggle="counter-up">100</h2>
                     </div>
                     <p class="mb-0">
                         Providing tailored solutions to various clients, including organizations like OLAM, Dangote Refineries, and Lush Hair, with a focus on delivering secure, reliable, and user-centric systems.
@@ -135,7 +195,7 @@
             <div class="row g-5">
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="display-5 mb-5">Skills & Experience</h1>
-                    <p class="mb-4">Ifeoluwa Odubiyi is a Full Stack Developer and Linux Server Administrator with over 3+ years of experience. Proficient in PHP, MySQL, and Laravel, I have contributed to multiple high-impact projects, including payroll systems, attendance management, and event ticketing solutions. My expertise spans the development of custom solutions, cloud infrastructure, and complex database structures, ensuring seamless integration of various technologies.</p>
+                    <p class="mb-4">Ifeoluwa Odubiyi is a Full Stack Developer and Linux Server Administrator with over 4+ years of experience. Proficient in PHP, MySQL, and Laravel, I have contributed to multiple high-impact projects, including payroll systems, attendance management, and event ticketing solutions. My expertise spans the development of custom solutions, cloud infrastructure, and complex database structures, ensuring seamless integration of various technologies.</p>
                     <h3 class="mb-4">My Skills</h3>
                     <div class="row align-items-center">
                         <div class="col-md-6">
@@ -150,7 +210,7 @@
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">CSS</h6>
+                                    <h6 class="font-weight-bold">Tailwind CSS & Bootstrap</h6>
                                     <h6 class="font-weight-bold">85%</h6>
                                 </div>
                                 <div class="progress">
@@ -206,7 +266,7 @@
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <h6 class="font-weight-bold">React</h6>
+                                    <h6 class="font-weight-bold">VueJs</h6>
                                     <h6 class="font-weight-bold">85%</h6>
                                 </div>
                                 <div class="progress">
@@ -316,90 +376,106 @@
                 <div class="col-lg-6 text-lg-end">
                     <ul class="list-inline mx-n3 mb-0" id="portfolio-flters">
                         <li class="mx-3 active" data-filter="*">All Projects</li>
-                        <li class="mx-3" data-filter=".first">UI/UX Design</li>
-                        <li class="mx-3" data-filter=".second">Graphic Design</li>
                     </ul>
                 </div>
             </div>
             <div class="row g-4 portfolio-container wow fadeInUp" data-wow-delay="0.1s">
+                <!-- Project 1 -->
                 <div class="col-lg-4 col-md-6 portfolio-item first">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/pro1.png" alt="Event Management System">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-1.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://gujaratisamajlagos.org/"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro1.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://gujaratisamajlagos.org/1/tickets"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project1Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 2 -->
                 <div class="col-lg-4 col-md-6 portfolio-item second">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro2.png" alt="Talent Management System">
+                        <img class="img-fluid" src="img/pro2.png" alt="Login System">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-2.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://talgen.biz/"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro2.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://gujaratisamajlagos.org/login"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project2Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 3 -->
                 <div class="col-lg-4 col-md-6 portfolio-item first">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro3.jpeg" alt="Human Resource Management System">
+                        <img class="img-fluid" src="img/pro14.png" alt="Social Register">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-3.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="#"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro14.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://unsr2.0.myworksoft.com/login"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project3Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 4 -->
                 <div class="col-lg-4 col-md-6 portfolio-item second">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro4.png" alt="Agriculture Product Sales">
+                        <img class="img-fluid" src="img/pro4.png" alt="Talent Management System">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-4.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://vv-agro.com/"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro4.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://talgen.biz"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project4Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 5 -->
                 <div class="col-lg-4 col-md-6 portfolio-item first">
                     <div class="portfolio-img rounded overflow-hidden">
                         <img class="img-fluid" src="img/pro5.png" alt="Maternal Health Sensitization Foundation">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-5.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://brfafrica.org"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro5.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://vv-agro.com"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project5Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 6 -->
                 <div class="col-lg-4 col-md-6 portfolio-item second">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro6.png" alt="Drug Sensitization and Abuse Prevention">
+                        <img class="img-fluid" src="img/pro6.png" alt="BRF Africa">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://kira.sleepforte.com/"><i class="fa fa-link"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro6.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://brfafrica.org/"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project6Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Project 7 -->
                 <div class="col-lg-4 col-md-6 portfolio-item first">
                     <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro7.png" alt="Electronic Document Management System">
+                        <img class="img-fluid" src="img/pro7.png" alt="Live Support System">
                         <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-7.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro7.png" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://nuray.ltd/support"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project7Info"><i class="fa fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 8 -->
+                <div class="col-lg-4 col-md-6 portfolio-item second">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/pro8.png" alt="Learning Management System">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/pro8.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://vets.inec.mws.ng/"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project8Info"><i class="fa fa-info-circle"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project 9 -->
+                <div class="col-lg-4 col-md-6 portfolio-item second">
+                    <div class="portfolio-img rounded overflow-hidden">
+                        <img class="img-fluid" src="img/pro10.png" alt="Electronic Document Management System">
+                        <div class="portfolio-btn">
+                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/proj10.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                             <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://github.com/T0niadev/EDMS"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro8.png" alt="Point of Sales System">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-8.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://github.com/T0niadev/PO"><i class="fa fa-link"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 portfolio-item second">
-                    <div class="portfolio-img rounded overflow-hidden">
-                        <img class="img-fluid" src="img/pro10.png" alt="Point of Sales System">
-                        <div class="portfolio-btn">
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="img/project-8.jpg" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
-                            <a class="btn btn-lg-square btn-outline-secondary border-2 mx-1" href="https://github.com/T0niadev/PO"><i class="fa fa-link"></i></a>
+                            <button class="btn btn-lg-square btn-outline-secondary border-2 mx-1" data-bs-toggle="modal" data-bs-target="#project9Info"><i class="fa fa-info-circle"></i></button>
                         </div>
                     </div>
                 </div>
@@ -407,17 +483,161 @@
         </div>
     </div>
     
+    <!-- Modals for project information -->
+    <!-- Project 1 Info Modal -->
+    <div class="modal fade" id="project1Info" tabindex="-1" aria-labelledby="project1Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project1Label">Event Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This system was designed to handle ticket sales, user registration, and manage multiple events seamlessly. It allows event organizers to create, modify, and delete events while enabling users to register, purchase tickets, and receive notifications about upcoming events.</p>
+                    <p>The system also includes QR code generation, allowing users to receive their tickets via email. These QR codes can be used for entry, ensuring a smooth and efficient check-in process. With event handlers that can easily register for different user actions, the system guarantees a responsive and interactive experience for all participants.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 2 Info Modal -->
+    <div class="modal fade" id="project2Info" tabindex="-1" aria-labelledby="project2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project2Label">Event Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>As part of the event management capabilities, administrators can track payments, manage tickets, and perform various administrative actions. This system provides a comprehensive solution for event organizers, allowing them to monitor ticket sales, manage user registrations, and streamline event operations effectively.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 3 Info Modal -->
+    <div class="modal fade" id="project3Info" tabindex="-1" aria-labelledby="project3Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project3Label">Social Register</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This platform functions as a comprehensive social register specifically designed for intervention programs in Nigeria. It features advanced analytical portals that facilitate the tracking of outreach efforts and the identification of vulnerable populations.</p>
+                    <p>By equipping organizations with invaluable insights, this system enhances their capacity to make informed decisions and effectively address pressing social issues. With its robust capabilities, the platform empowers stakeholders to strategize and implement targeted interventions that create a meaningful impact in communities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 4 Info Modal -->
+    <div class="modal fade" id="project4Info" tabindex="-1" aria-labelledby="project4Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project4Label">Talgen Website</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This system was designed for Talgen to advertise ther services and manage talent acquisition. The system is integrated with a comprehensive applicant tracking system for recruitment purpose.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 5 Info Modal -->
+    <div class="modal fade" id="project5Info" tabindex="-1" aria-labelledby="project5Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project5Label">Agriculture Product Sales</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>The website has an extensive database where suppliers can advertise their products, including seeds, fertilizers, machinery, and livestock. It allows users to connect directly with suppliers, and also includes automated email functionalities to keep users informed. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 6 Info Modal -->
+    <div class="modal fade" id="project6Info" tabindex="-1" aria-labelledby="project6Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project6Label">BRF Africa</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This system is designed specifically for a Maternal Health Sensitization Foundation aimed at raising awareness and promoting education about maternal health issues. The platform provides essential resources, information, and support to expectant mothers and healthcare providers, facilitating outreach and engagement within communities.</p>
+                    <p>Additionally, the system is integrated with a payment gateway, allowing for the seamless acceptance of donations. This feature ensures that the foundation can easily collect funds to support its initiatives and programs, further enhancing its impact on maternal health awareness and support in the region.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 7 Info Modal -->
+    <div class="modal fade" id="project7Info" tabindex="-1" aria-labelledby="project7Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project7Label">lagoSmart Live Support System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This Live Support System is designed for lagoSmart to enhance customer service efficiency by generating support tickets for user inquiries and automatically assigning them to available agents. This ensures that each request is handled promptly and by the most suitable representative. </p>
+                        <p>Users can communicate with agents in real-time through a user-friendly interface, allowing for quick resolutions and effective interaction. The system's streamlined process not only improves response times but also elevates overall customer satisfaction by providing tailored support that meets users' needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 8 Info Modal -->
+    <div class="modal fade" id="project8Info" tabindex="-1" aria-labelledby="project8Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project8Label">INEC VETS Learning Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This Learning Management System (LMS) is specifically designed for the staff of the Independent National Electoral Commission (INEC) in Nigeria. The platform provides an intuitive interface for users to access essential training materials, complete necessary courses, and receive grades for their progress. By utilizing this system, INEC staff can familiarize themselves with crucial processes, enhancing their skills and knowledge to effectively contribute to their roles within the organization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Project 9 Info Modal -->
+    <div class="modal fade" id="project9Info" tabindex="-1" aria-labelledby="project9Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="project9Label">Electronic Document Management System</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>This Electronic Document Management System (EDMS) is designed to help organizations efficiently manage their electronic documents. It allows for a systematic sequence of file and folder creation, ensuring that documents are organized in a logical manner. The system features automatic sorting capabilities that categorize documents based on predefined criteria, simplifying the retrieval process.</p>
+                    <p>Additionally, the EDMS is integrated with Elasticsearch for advanced indexing, enabling rapid and accurate searching of documents. This powerful integration ensures that users can easily find and access the documents they need, enhancing productivity and compliance with document management standards.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
     <!-- Projects End -->
 
    
 
 
     <!-- Copyright Start -->
-    <div class="container-fluid bg-dark text-white py-4">
+    <div class="container-fluid  text-white py-4" >
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-                        &copy; <a class="border-bottom text-secondary" href="#">Odubiyi Ifeoluwa</a>, All Right Reserved.
+                    <div class="col-md-12 text-center text-md-start mb-3 mb-md-0 text-primary">
+                        &copy; <a class="border-bottom text-primary" href="#">Odubiyi Ifeoluwa</a>, All Right Reserved.
                     </div>
                
                 </div>
