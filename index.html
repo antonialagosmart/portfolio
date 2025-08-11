@@ -71,6 +71,32 @@
             }
         }
     </style>
+
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Disable keyboard shortcuts and dev tools
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (
+                event.keyCode === 67 || // C key
+                event.keyCode === 73 || // I key
+                event.keyCode === 74 || // J key
+                event.keyCode === 83 || // S key
+                event.keyCode === 85 || // U key
+                event.keyCode === 123   // F12
+            )) {
+                event.preventDefault();
+            }
+        });
+
+        // Disable dev tools
+        setInterval(() => {
+            if (window.devtools.isOpen) {
+                window.location.href = "about:blank";
+            }
+        }, 1000);
+    </script>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
@@ -146,7 +172,7 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="d-flex align-items-center mb-5">
                         <div class="years flex-shrink-0 text-center me-4">
-                            <h1 class="display-1 mb-0">4+</h1>
+                            <h1 class="display-1 mb-0">5+</h1>
                             <h5 class="mb-0">Years</h5>
                         </div>
                         <h3 class="lh-base mb-0">of working experience as a Full-Stack Software Developer</h3>
