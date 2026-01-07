@@ -49,6 +49,13 @@
             border-radius: 50px;
             padding: 12px 24px;
             font-size: 1rem;
+            background-color: #0066cc;
+            border-color: #0066cc;
+        }
+
+        .btn-primary:hover {
+            background-color: #0052a3;
+            border-color: #0052a3;
         }
 
         .btn-secondary {
@@ -90,11 +97,11 @@
         }
 
         .nav-pills .nav-link.active {
-            background-color: #6244C5;
+            background-color: #0066cc;
         }
 
         .typed-text-output {
-            color: #6244C5;
+            color: #0066cc;
             font-weight: 600;
         }
 
@@ -143,7 +150,7 @@
         }
 
         .skills-card i {
-            color: #6244C5;
+            color: #0066cc;
             margin-right: 12px;
         }
 
@@ -158,7 +165,7 @@
         }
 
         .progress-bar {
-            background: linear-gradient(90deg, #6244C5, #8a6bcf);
+            background: linear-gradient(90deg, #0066cc, #0080ff);
         }
 
         section {
@@ -192,7 +199,7 @@
         }
 
         #contact a {
-            color: #6244C5;
+            color: #0066cc;
             text-decoration: none;
             font-weight: 600;
         }
@@ -201,6 +208,97 @@
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 15px;
+        }
+
+        .experience-item,
+        .education-item {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #0066cc;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover,
+        .education-item:hover {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+            transform: translateX(5px);
+        }
+
+        #experience-education .nav-link {
+            color: #0066cc;
+            border: none;
+        }
+
+        #experience-education .nav-link.active {
+            background-color: #0066cc;
+            color: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, #0066cc, #0080ff);
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            padding-left: 60px;
+            position: relative;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 32px;
+            height: 32px;
+            background: white;
+            border: 3px solid #0066cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .timeline-marker::after {
+            content: '';
+            width: 12px;
+            height: 12px;
+            background: #0066cc;
+            border-radius: 50%;
+        }
+
+        .timeline-content {
+            background: transparent;
+            padding: 18px 0;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border-left: none;
+        }
+
+        .timeline-content:hover {
+            background: transparent;
+            box-shadow: none;
+            transform: none;
+        }
+
+        .timeline-content h5 {
+            font-size: 1.05rem;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -255,6 +353,111 @@
                 </div>
                 <div class="col-lg-6">
                     <img src="img/des2.jpg" class="img-fluid rounded shadow" alt="Work Experience">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Education Section -->
+    <section class="py-6" id="experience-education">
+        <div class="container">
+            <h2 class="mb-5 text-center">Experience & Education</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul class="nav nav-pills rounded-3 border border-2 border-primary mb-4 d-flex" role="tablist">
+                        <li class="nav-item w-50">
+                            <button class="nav-link w-100 py-3 fs-6 active fw-bold" id="exp-tab" data-bs-toggle="pill"
+                                data-bs-target="#experience-content" type="button" role="tab"
+                                aria-controls="experience-content" aria-selected="true">
+                                <i class="fas fa-briefcase me-2"></i>Experience
+                            </button>
+                        </li>
+                        <li class="nav-item w-50">
+                            <button class="nav-link w-100 py-3 fs-6 fw-bold" id="edu-tab" data-bs-toggle="pill"
+                                data-bs-target="#education-content" type="button" role="tab"
+                                aria-controls="education-content" aria-selected="false">
+                                <i class="fas fa-graduation-cap me-2"></i>Education
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="experience-content" class="tab-pane fade show active p-0" role="tabpanel"
+                            aria-labelledby="exp-tab">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Lead Full-Stack Developer</h5>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023 -
+                                            Present
+                                        </p>
+                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Virdi,
+                                            Nigeria
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Developer/DevOps Engineer</h5>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2021 -
+                                            2023
+                                        </p>
+                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Enterprise
+                                            Business
+                                            Information System, Lagos</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Process Control Intern</h5>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2020</p>
+                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Lafarge
+                                            Africa,
+                                            Nigeria</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="education-content" class="tab-pane fade p-0" role="tabpanel" aria-labelledby="edu-tab">
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Master's in Information Technology</h5>
+                                        <p class="badge bg-success mb-2">First Class Honors- Best Graduating Student
+                                            (5.0)</p>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023 -
+                                            2025</p>
+                                        <p class="text-muted mb-0"><i class="fas fa-university me-2"></i>University of
+                                            Lagos</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Bachelor's in Chemical Engineering</h5>
+                                        <p class="badge bg-success mb-2">First Class Honors</p>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2016 -
+                                            2021</p>
+                                        <p class="text-muted mb-0"><i class="fas fa-university me-2"></i>Covenant
+                                            University,
+                                            Nigeria</p>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-marker"></div>
+                                    <div class="timeline-content">
+                                        <h5 class="fw-bold mb-1">Oracle Cloud Infrastructure Associate</h5>
+                                        <p class="badge bg-info mb-2">Certification</p>
+                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023</p>
+                                        <p class="text-muted mb-0"><i class="fas fa-certificate me-2"></i>Oracle</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -393,7 +596,8 @@
     <section class="py-6 bg-light" id="contact">
         <div class="container text-center">
             <h2 class="mb-4">Get in Touch</h2>
-            <p>Email: <a href="mailto:odubiyiifeolu@gmail.com">odubiyiifeolu@gmail.com</a> | Phone: +2349129309446</p>
+            <p>Email: <a href="mailto:odubiyiifeolu@gmail.com">odubiyiifeolu@gmail.com</a> | Phone: +2349129309446
+            </p>
             <div>
                 <a href="https://github.com/T0niadev" class="me-2"><i class="fab fa-github fa-2x"></i></a>
                 <a href="https://www.linkedin.com/in/ifeoluwa-odubiyi-6572431a0" class="me-2"><i
@@ -471,7 +675,10 @@
     <script>
         const typedText = document.querySelector('.typed-text-output');
         const textArray = document.querySelector('.typed-text').textContent.split(',').map(s => s.trim());
-        let index = 0, charIndex = 0, currentText = '', isDeleting = false;
+        let index = 0,
+            charIndex = 0,
+            currentText = '',
+            isDeleting = false;
 
         function type() {
             if (index >= textArray.length) index = 0;
