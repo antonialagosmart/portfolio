@@ -65,6 +65,19 @@ nav {
 }
 .nav-hire:hover { background: var(--teal); }
 
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px;
+  background: none; border: none;
+}
+.nav-toggle span {
+  display: block; width: 24px; height: 2px;
+  background: var(--ink); border-radius: 2px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
 /* ───── HERO ───── */
 .hero {
   min-height: 100vh;
@@ -529,7 +542,6 @@ nav {
   letter-spacing: 0.03em;
 }
 
-/* Project images using screenshot services */
 .proj-thumb { background: var(--cream-dark); }
 
 /* ───── TESTIMONIALS ───── */
@@ -577,6 +589,7 @@ nav {
   display: flex; align-items: center; justify-content: center;
   font-family: 'DM Serif Display', serif;
   font-size: 0.9rem; font-weight: 400; color: white;
+  flex-shrink: 0;
 }
 .av-teal { background: var(--teal); }
 .av-amber { background: var(--amber); }
@@ -675,9 +688,185 @@ footer {
 }
 .reveal.on { opacity: 1; transform: none; }
 
-/* Typewriter */
 @keyframes blink { 0%,100%{border-color: var(--teal);} 50%{border-color: transparent;} }
 .name-typed { animation: blink 0.75s step-end infinite; }
+
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE — full overhaul
+   ═══════════════════════════════════════════ */
+
+/* ── Tablet: ≤ 1024px ── */
+@media (max-width: 1024px) {
+  nav { padding: 1rem 2.5rem; }
+  .nav-links { gap: 1.5rem; }
+
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 5rem 2.5rem 3rem; }
+  .hero-right { min-height: 380px; }
+  .hero-photo { max-width: 260px; }
+  .cert-badge { right: 1rem; bottom: 1.5rem; }
+
+  .services-strip { padding: 3rem 2.5rem; grid-template-columns: 1fr; gap: 2rem; }
+  .services-cards { grid-template-columns: repeat(3, 1fr); }
+
+  .what-section { padding: 4rem 2.5rem; gap: 3rem; }
+  .exp-section { padding: 4rem 2.5rem; }
+  .credentials-section { padding: 4rem 2.5rem; }
+  .creds-grid { grid-template-columns: 1fr 1fr; }
+  .cred-card:nth-child(2) { border-right: none; }
+  .cred-card:nth-child(3) { border-top: 1px solid rgba(255,255,255,0.06); }
+
+  .projects-section { padding: 4rem 2.5rem; }
+  .projects-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .testimonials-section { padding: 4rem 2.5rem; }
+
+  .contact-section { padding: 4rem 2.5rem; gap: 3rem; }
+  footer { padding: 1.5rem 2.5rem; }
+}
+
+/* ── Mobile: ≤ 768px ── */
+@media (max-width: 768px) {
+  /* Nav */
+  nav {
+    padding: 0.9rem 1.25rem;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 0.5rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 0.75rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links li a {
+    display: block;
+    padding: 0.65rem 0;
+    font-size: 0.9rem;
+  }
+  .nav-hire { display: none; }
+  .nav-toggle { display: flex; }
+
+  /* Hero */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .hero-left {
+    padding: 5.5rem 1.5rem 2.5rem;
+    order: 1;
+  }
+  .hero-greeting {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+  }
+  .hero-greeting .name-line { white-space: normal; }
+  .hero-tagline-box { max-width: 100%; }
+  .hero-exp-badge { margin-top: 2rem; }
+  .exp-num { font-size: 4rem; }
+  .cert-badge {
+    position: static;
+    margin-top: 1.5rem;
+    width: 90px; height: 90px;
+    font-size: 0.55rem;
+  }
+
+  .hero-right {
+    order: 2;
+    min-height: 300px;
+  }
+  .hero-photo { max-width: 200px; }
+  .hero-bg-blob { width: 280px; height: 280px; }
+  .hero-right-info {
+    top: 1rem; right: 1rem;
+  }
+  .info-pill { font-size: 0.62rem; padding: 0.3rem 0.7rem; }
+
+  /* Services strip */
+  .services-strip {
+    padding: 2.5rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .services-heading { font-size: 1.8rem; }
+  .services-cards { grid-template-columns: 1fr 1fr; }
+  .services-cards .service-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+  /* What section */
+  .what-section {
+    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  /* Experience */
+  .exp-section { padding: 3rem 1.5rem; }
+  .section-label-row { flex-wrap: wrap; gap: 0.75rem; margin-bottom: 2rem; }
+  .exp-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+    padding: 1.25rem 1rem;
+  }
+  .exp-node-right { display: none; }
+  .exp-date { order: 2; }
+  .exp-middle { order: 1; }
+
+  /* Credentials */
+  .credentials-section { padding: 3rem 1.5rem; }
+  .creds-grid {
+    grid-template-columns: 1fr;
+    border: none;
+    gap: 1px;
+  }
+  .cred-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .cred-card:last-child { border-bottom: none; }
+
+  /* Projects */
+  .projects-section { padding: 3rem 1.5rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+
+  /* Testimonials */
+  .testimonials-section { padding: 3rem 1.5rem; }
+  .testi-grid { grid-template-columns: 1fr; }
+
+  /* Contact */
+  .contact-section {
+    padding: 3rem 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .contact-cta { width: 100%; justify-content: center; }
+
+  /* Footer */
+  footer {
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* ── Small mobile: ≤ 420px ── */
+@media (max-width: 420px) {
+  .hero-left { padding: 5rem 1.25rem 2rem; }
+  .services-cards { grid-template-columns: 1fr; }
+  .services-cards .service-card:last-child { grid-column: auto; }
+  .proj-thumb { height: 160px; }
+  .contact-section { padding: 2.5rem 1.25rem; }
+  .credentials-section { padding: 2.5rem 1.25rem; }
+  .exp-section { padding: 2.5rem 1.25rem; }
+  .what-section { padding: 2.5rem 1.25rem; }
+  .projects-section { padding: 2.5rem 1.25rem; }
+  .testimonials-section { padding: 2.5rem 1.25rem; }
+}
 </style>
 </head>
 <body>
@@ -685,12 +874,15 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-logo">Ife<span>oluwa</span></div>
-  <ul class="nav-links">
+  <ul class="nav-links" id="nav-links">
     <li><a href="#what">About</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
   <a href="mailto:odubiyiifeolu@gmail.com" class="nav-hire">Hire Me →</a>
 </nav>
 
@@ -840,7 +1032,7 @@ footer {
   </div>
 </section>
 
-<!-- CREDENTIALS (replaces Education) -->
+<!-- CREDENTIALS -->
 <section class="credentials-section" id="education">
   <div class="section-label-row reveal">
     <span class="s-tag">Credentials</span>
@@ -928,18 +1120,19 @@ footer {
       </div>
     </a>
 
-    <a href="https://talentgen.co" target="_blank" class="proj-card reveal">
+    <!-- PAYSCRIN — replaces TalentGen -->
+    <a href="https://payscrin.com" target="_blank" class="proj-card reveal">
       <div class="proj-thumb">
-        <img src="https://api.microlink.io?url=https://talentgen.co&screenshot=true&meta=false&embed=screenshot.url" alt="TalentGen" loading="lazy" />
+        <img src="https://api.microlink.io?url=https://payscrin.com&screenshot=true&meta=false&embed=screenshot.url" alt="Payscrin" loading="lazy" />
         <div class="proj-thumb-overlay"></div>
       </div>
       <div class="proj-body">
         <div class="proj-top">
-          <h3 class="proj-title">TalentGen</h3>
+          <h3 class="proj-title">Payscrin</h3>
           <span class="proj-link-icon">↗</span>
         </div>
-        <p class="proj-blurb">Intelligent talent sourcing &amp; recruitment platform connecting companies with top-tier candidates.</p>
-        <div class="proj-pill-row"><span class="pp">HR Tech</span><span class="pp">Recruitment</span></div>
+        <p class="proj-blurb">Flexible payments, salary advance &amp; payroll management platform built for modern teams and growing businesses.</p>
+        <div class="proj-pill-row"><span class="pp">Payments</span><span class="pp">Salary Advance</span><span class="pp">Payroll</span></div>
       </div>
     </a>
 
@@ -1120,11 +1313,21 @@ function type() {
     i++;
     setTimeout(type, i === 1 ? 600 : 70);
   } else {
-    // stop blinking after done
     setTimeout(() => { el.style.borderRight = '3px solid transparent'; }, 1500);
   }
 }
 setTimeout(type, 400);
+
+// Mobile nav toggle
+const toggle = document.getElementById('nav-toggle');
+const navLinks = document.getElementById('nav-links');
+toggle.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+// Close nav on link click
+navLinks.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navLinks.classList.remove('open'));
+});
 
 // Scroll reveal
 const obs = new IntersectionObserver((entries) => {
