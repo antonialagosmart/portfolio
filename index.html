@@ -1,708 +1,1143 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ifeoluwa Odubiyi | Software Engineer</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ifeoluwa Odubiyi — Lead Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            scroll-behavior: smooth;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+:root {
+  --cream: #f4ede1;
+  --cream-dark: #ece3d3;
+  --ink: #1c1917;
+  --teal: #1a7a69;
+  --teal-mid: #2a9d87;
+  --teal-light: #d5ede9;
+  --amber: #c9852a;
+  --amber-light: #fdf0dc;
+  --white: #fff;
+  --gray: #78716c;
+  --border: rgba(28,25,23,0.1);
+  --gold: #b8860b;
+}
 
-        .hero-section {
-            background: #f8f9fa;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 60px 0;
-        }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
 
-        .hero-section h1 {
-            font-weight: 800;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-        }
+/* ───── NAV ───── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 5rem;
+  background: rgba(244,237,225,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.3rem;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+}
+.nav-logo span { color: var(--teal); }
+.nav-links { display: flex; gap: 2.5rem; list-style: none; }
+.nav-links a {
+  font-size: 0.8rem; font-weight: 500;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  color: var(--gray); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-hire {
+  background: var(--ink); color: var(--white);
+  font-size: 0.78rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.6rem 1.5rem; border-radius: 2px;
+  text-decoration: none; transition: background 0.2s;
+}
+.nav-hire:hover { background: var(--teal); }
 
-        .hero-section h3 {
-            font-size: 1.25rem;
-        }
+/* ───── HERO ───── */
+.hero {
+  min-height: 100vh;
+  padding-top: 72px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
 
-        .hero-section h4 {
-            font-size: 1.5rem;
-        }
+.hero-left {
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 4rem 4rem 4rem 5rem;
+  position: relative; z-index: 2;
+}
 
-        .hero-section p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
+.hero-greeting {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 5.5vw, 4.6rem);
+  font-weight: 400;
+  line-height: 1.08;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.1s forwards;
+}
+.hero-greeting .name-line {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.name-static { color: var(--ink); }
+.name-typed { color: var(--teal); border-right: 3px solid var(--teal); padding-right: 2px; }
 
-        .btn-primary {
-            border-radius: 50px;
-            padding: 12px 24px;
-            font-size: 1rem;
-            background-color: #0066cc;
-            border-color: #0066cc;
-        }
+.hero-tagline-box {
+  max-width: 360px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.3s forwards;
+}
+.hero-tagline-box p {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--gray);
+  line-height: 1.8;
+}
+.hero-tagline-box p strong { color: var(--ink); font-weight: 600; }
 
-        .btn-primary:hover {
-            background-color: #0052a3;
-            border-color: #0052a3;
-        }
+.hero-email {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--teal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--teal);
+  padding-bottom: 2px;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.45s forwards;
+  transition: opacity 0.2s;
+}
+.hero-email:hover { opacity: 0.7; }
 
-        .btn-secondary {
-            padding: 12px 24px;
-            font-size: 1rem;
-        }
+.hero-exp-badge {
+  margin-top: 2.5rem;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.6s forwards;
+}
+.exp-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 5rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+.exp-meta { display: flex; flex-direction: column; }
+.exp-meta span:first-child {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink);
+}
+.exp-meta span:last-child {
+  font-size: 0.72rem; font-weight: 400;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gray);
+}
 
-        .skill-bar {
-            height: 15px;
-            border-radius: 10px;
-        }
+.cert-badge {
+  position: absolute;
+  bottom: 3rem; right: 2rem;
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 1rem;
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--ink); line-height: 1.5;
+  box-shadow: 0 8px 32px rgba(26,26,46,0.08);
+  opacity: 0;
+  animation: fadeUp 0.9s 0.8s forwards;
+}
+.cert-badge .cert-icon {
+  font-size: 1.2rem; margin-bottom: 0.4rem;
+  color: var(--teal); font-style: normal;
+}
 
-        .portfolio-img {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-        }
+/* Right panel */
+.hero-right {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: flex-end; justify-content: center;
+}
 
-        .portfolio-img img {
-            transition: transform 0.3s ease;
-        }
+.hero-bg-blob {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px; height: 440px;
+}
+.blob-shape {
+  width: 100%; height: 100%;
+  background: var(--teal);
+  border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%;
+  animation: morphBlob 8s ease-in-out infinite;
+  opacity: 0.45;
+}
+@keyframes morphBlob {
+  0%,100% { border-radius: 40% 60% 55% 45% / 50% 45% 55% 50%; }
+  33% { border-radius: 55% 45% 40% 60% / 45% 60% 40% 55%; }
+  66% { border-radius: 45% 55% 60% 40% / 55% 40% 60% 45%; }
+}
 
-        .portfolio-img:hover img {
-            transform: scale(1.1);
-        }
+.hero-photo {
+  position: relative; z-index: 3;
+  width: 75%;
+  max-width: 340px;
+  margin-bottom: 0;
+  align-self: flex-end;
+  border-radius: 0;
+  overflow: hidden;
+  animation: floatAvatar 5s ease-in-out infinite;
+}
+.hero-photo img {
+  width: 100%; display: block;
+  object-fit: cover; object-position: top;
+}
 
-        .portfolio-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+@keyframes floatAvatar {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-        .portfolio-img:hover .portfolio-btn {
-            opacity: 1;
-        }
+.hero-right-info {
+  position: absolute;
+  top: 2.5rem; right: 2rem;
+  display: flex; flex-direction: column; gap: 0.7rem;
+  z-index: 4;
+}
+.info-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.72);
+  font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.05em;
+  padding: 0.4rem 1rem; border-radius: 2px;
+  backdrop-filter: blur(8px);
+}
+.info-pill.gold {
+  background: rgba(200,140,30,0.15);
+  border-color: rgba(200,140,30,0.3);
+  color: #e8c06a;
+}
 
-        .nav-pills .nav-link.active {
-            background-color: #0066cc;
-        }
+/* ───── SERVICES STRIP ───── */
+.services-strip {
+  padding: 4rem 5rem;
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4rem;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
 
-        .typed-text-output {
-            color: #0066cc;
-            font-weight: 600;
-        }
+.services-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.3rem; font-weight: 400;
+  color: var(--ink); line-height: 1.2;
+}
+.services-heading em { font-style: italic; color: var(--teal); }
 
-        .project-card {
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            padding: 20px;
-            margin-bottom: 20px;
-            height: 100%;
-        }
+.services-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
 
-        .project-card h5 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-top: 15px;
-            margin-bottom: 12px;
-        }
+.service-card {
+  background: var(--white);
+  border-radius: 2px;
+  padding: 1.5rem 1.25rem;
+  border: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 0.75rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 3px solid var(--teal);
+}
+.service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(26,26,46,0.08); }
 
-        .project-card p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #666;
-        }
+.service-icon {
+  width: 42px; height: 42px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  background: var(--teal-light); border-radius: 2px;
+}
+.service-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem; font-weight: 400; color: var(--ink);
+}
+.service-count { font-size: 0.78rem; color: var(--gray); font-weight: 300; }
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+/* ───── WHAT I DO ───── */
+.what-section {
+  padding: 5rem 5rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+  background: var(--white);
+}
 
-        .skills-card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
+.what-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400; line-height: 1.15;
+  color: var(--ink); margin-bottom: 1.5rem;
+}
+.what-heading em { font-style: italic; color: var(--teal); }
 
-        .skills-card:hover {
-            transform: translateY(-5px);
-        }
+.what-text {
+  font-size: 0.95rem; font-weight: 300;
+  color: var(--gray); line-height: 1.95; margin-bottom: 1rem;
+}
 
-        .skills-card i {
-            color: #0066cc;
-            margin-right: 12px;
-        }
+.what-points { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.85rem; }
+.what-point { display: flex; align-items: center; gap: 1rem; }
+.point-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+.point-text { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
 
-        .skills-card strong {
-            font-size: 1.1rem;
-        }
+.skills-right { display: flex; flex-direction: column; gap: 0.85rem; }
 
-        .progress {
-            height: 8px;
-            border-radius: 4px;
-            background-color: #e9ecef;
-        }
+.skill-group-card {
+  background: var(--cream);
+  border-radius: 2px; padding: 1.25rem 1.5rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--teal);
+}
+.sgc-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+.sgc-label {
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink);
+}
+.sgc-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sgc-pill {
+  font-size: 0.73rem; font-weight: 400;
+  padding: 0.28rem 0.75rem; border-radius: 2px;
+  background: var(--white); color: var(--ink);
+  border: 1px solid var(--border);
+  transition: background 0.15s, color 0.15s;
+}
+.sgc-pill:hover { background: var(--ink); color: var(--white); }
 
-        .progress-bar {
-            background: linear-gradient(90deg, #0066cc, #0080ff);
-        }
+/* ───── EXPERIENCE ───── */
+.exp-section { padding: 5rem 5rem; background: var(--cream); }
 
-        section {
-            padding: 80px 0;
-        }
+.section-label-row { display: flex; align-items: center; gap: 1.25rem; margin-bottom: 3rem; }
+.s-tag {
+  font-size: 0.62rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal); background: var(--teal-light);
+  padding: 0.35rem 1rem; border-radius: 2px;
+}
+.s-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 400; color: var(--ink);
+}
+.s-title em { font-style: italic; color: var(--teal); }
 
-        section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
+.exp-table { display: flex; flex-direction: column; }
 
-        #about p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
+.exp-row {
+  display: grid;
+  grid-template-columns: 200px 1fr 80px;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--border);
+  border-radius: 2px; gap: 2rem;
+  transition: background 0.15s;
+}
+.exp-row:hover { background: var(--white); }
+.exp-row:last-child { border-bottom: none; }
 
-        #about ul {
-            font-size: 1.05rem;
-            line-height: 1.9;
-        }
+.exp-date { font-size: 0.78rem; font-weight: 400; color: var(--gray); letter-spacing: 0.03em; }
+.exp-date span { display: block; color: var(--teal); font-weight: 600; font-size: 0.8rem; }
 
-        #about li {
-            margin-bottom: 12px;
-        }
+.exp-r-role {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem; font-weight: 400; color: var(--ink); margin-bottom: 0.2rem;
+}
+.exp-r-company { font-size: 0.82rem; color: var(--gray); font-weight: 300; }
+.exp-r-company strong { color: var(--teal); font-weight: 500; }
 
-        #contact p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
+.exp-node-right { display: flex; justify-content: flex-end; }
+.exp-dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--border); background: var(--white);
+}
+.exp-dot.active { background: var(--teal); border-color: var(--teal); }
 
-        #contact a {
-            color: #0066cc;
-            text-decoration: none;
-            font-weight: 600;
-        }
+/* ───── CREDENTIALS ───── */
+.credentials-section {
+  padding: 5rem 5rem;
+  background: var(--ink);
+}
+.credentials-section .s-tag { color: #e8c06a; background: rgba(200,140,30,0.12); }
+.credentials-section .s-title { color: var(--white); }
 
-        .modal-body p {
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 15px;
-        }
+.creds-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
 
-        .experience-item,
-        .education-item {
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border-left: 4px solid #0066cc;
-            transition: all 0.3s ease;
-        }
+.cred-card {
+  background: rgba(255,255,255,0.03);
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  position: relative; overflow: hidden;
+  transition: background 0.2s;
+}
+.cred-card:last-child { border-right: none; }
+.cred-card:hover { background: rgba(255,255,255,0.06); }
 
-        .experience-item:hover,
-        .education-item:hover {
-            background: white;
-            box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
-            transform: translateX(5px);
-        }
+.cred-year {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3.5rem; font-weight: 400;
+  color: rgba(255,255,255,0.05);
+  position: absolute; bottom: 1rem; right: 1.5rem;
+  line-height: 1;
+}
 
-        #experience-education .nav-link {
-            color: #0066cc;
-            border: none;
-        }
+.cred-type {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--teal-mid); margin-bottom: 1.2rem;
+}
+.cred-type.gold-t { color: #e8c06a; }
 
-        #experience-education .nav-link.active {
-            background-color: #0066cc;
-            color: white;
-        }
+.cred-line {
+  width: 32px; height: 2px;
+  background: var(--teal);
+  margin-bottom: 1.5rem;
+}
+.cred-line.gold { background: var(--amber); }
 
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
+.cred-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.15rem; font-weight: 400;
+  color: var(--white); margin-bottom: 0.4rem; line-height: 1.3;
+}
+.cred-sub { font-size: 0.82rem; color: rgba(255,255,255,0.4); margin-bottom: 0.25rem; font-weight: 300; }
+.cred-note { font-size: 0.72rem; color: rgba(255,255,255,0.2); font-weight: 300; }
 
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, #0066cc, #0080ff);
-        }
+.cred-award {
+  display: inline-block;
+  margin-top: 1rem;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid rgba(232,192,106,0.3);
+  color: #e8c06a;
+  background: rgba(200,140,30,0.1);
+}
 
-        .timeline-item {
-            margin-bottom: 30px;
-            padding-left: 60px;
-            position: relative;
-        }
+/* ───── PROJECTS ───── */
+.projects-section { padding: 5rem 5rem; background: var(--cream); }
 
-        .timeline-marker {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 32px;
-            height: 32px;
-            background: white;
-            border: 3px solid #0066cc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
 
-        .timeline-marker::after {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: #0066cc;
-            border-radius: 50%;
-        }
+.proj-card {
+  background: var(--white);
+  border-radius: 2px;
+  border: 1px solid var(--border);
+  text-decoration: none; color: inherit;
+  display: block; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  position: relative;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 48px rgba(26,26,46,0.1);
+  border-color: rgba(29,122,106,0.35);
+}
 
-        .timeline-content {
-            background: transparent;
-            padding: 18px 0;
-            border-radius: 0;
-            transition: all 0.3s ease;
-            border-left: none;
-        }
+.proj-thumb {
+  width: 100%; height: 180px;
+  background: var(--ink);
+  overflow: hidden; position: relative;
+}
+.proj-thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top;
+  transition: transform 0.4s ease;
+  opacity: 0.9;
+}
+.proj-card:hover .proj-thumb img { transform: scale(1.04); }
 
-        .timeline-content:hover {
-            background: transparent;
-            box-shadow: none;
-            transform: none;
-        }
+.proj-thumb-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(28,25,23,0.6));
+}
 
-        .timeline-content h5 {
-            font-size: 1.05rem;
-        }
+.proj-body { padding: 1.25rem 1.25rem 1.5rem; }
 
-        .timeline-content p {
-            font-size: 0.95rem;
-        }
-    </style>
+.proj-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.proj-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem; font-weight: 400; color: var(--ink);
+}
+.proj-link-icon {
+  font-size: 0.85rem; color: var(--gray);
+  width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0; text-decoration: none;
+}
+.proj-card:hover .proj-link-icon { background: var(--ink); color: var(--white); border-color: var(--ink); }
+
+.proj-blurb {
+  font-size: 0.78rem; color: var(--gray);
+  line-height: 1.65; font-weight: 300; margin-bottom: 0.85rem;
+}
+.proj-pill-row { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.pp {
+  font-size: 0.66rem; font-weight: 500;
+  padding: 0.22rem 0.65rem; border-radius: 2px;
+  background: var(--teal-light); color: var(--teal);
+  letter-spacing: 0.03em;
+}
+
+/* Project images using screenshot services */
+.proj-thumb { background: var(--cream-dark); }
+
+/* ───── TESTIMONIALS ───── */
+.testimonials-section { padding: 5rem 5rem; background: var(--white); }
+
+.testi-intro {
+  max-width: 500px;
+  margin-bottom: 3rem;
+}
+.testi-intro p {
+  font-size: 0.9rem; color: var(--gray);
+  font-weight: 300; line-height: 1.8;
+}
+
+.testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+
+.testi-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 2px; padding: 2rem;
+  border-top: 3px solid var(--teal);
+  position: relative;
+}
+.testi-card.alt { border-top-color: var(--amber); }
+
+.testi-open-quote {
+  font-family: 'DM Serif Display', serif;
+  font-size: 4rem; line-height: 0.8;
+  color: var(--teal); opacity: 0.3;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.testi-card.alt .testi-open-quote { color: var(--amber); }
+
+.testi-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem; font-weight: 400;
+  color: var(--ink); line-height: 1.75;
+  font-style: italic; margin-bottom: 1.5rem;
+}
+
+.testi-author { display: flex; align-items: center; gap: 0.85rem; }
+.testi-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.9rem; font-weight: 400; color: white;
+}
+.av-teal { background: var(--teal); }
+.av-amber { background: var(--amber); }
+.testi-name {
+  font-size: 0.88rem; font-weight: 600; color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+.testi-role { font-size: 0.72rem; color: var(--gray); font-weight: 300; }
+.testi-company {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--teal); background: var(--teal-light);
+  padding: 0.15rem 0.5rem; border-radius: 2px;
+}
+
+/* ───── CONTACT ───── */
+.contact-section {
+  padding: 6rem 5rem;
+  background: var(--ink);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 6rem; align-items: center;
+}
+
+.contact-heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400; color: var(--white);
+  line-height: 1.15; margin-bottom: 1.25rem;
+}
+.contact-heading em { font-style: italic; color: var(--teal-mid); }
+.contact-sub {
+  font-size: 0.92rem; font-weight: 300;
+  color: rgba(255,255,255,0.4); line-height: 1.85; margin-bottom: 2.5rem;
+}
+.contact-cta {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  background: var(--teal); color: var(--white);
+  font-size: 0.82rem; font-weight: 500;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  padding: 1rem 2.2rem; border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+.contact-cta:hover { background: #15604f; transform: translateY(-2px); }
+
+.contact-right { display: flex; flex-direction: column; gap: 1rem; }
+
+.contact-info-card {
+  display: flex; align-items: center; gap: 1.25rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 2px; padding: 1.25rem 1.5rem;
+  text-decoration: none; color: var(--white);
+  transition: background 0.2s, border-color 0.2s;
+}
+.contact-info-card:hover { background: rgba(29,122,106,0.1); border-color: rgba(29,122,106,0.3); }
+
+.c-icon {
+  width: 44px; height: 44px; border-radius: 2px;
+  background: rgba(255,255,255,0.06);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; flex-shrink: 0;
+}
+.c-label {
+  font-size: 0.6rem; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.25); margin-bottom: 0.2rem;
+}
+.c-val { font-size: 0.88rem; font-weight: 400; color: var(--white); }
+
+/* ───── FOOTER ───── */
+footer {
+  background: #0d0c0b;
+  padding: 1.75rem 5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.foot-logo {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1rem; font-weight: 400;
+  color: rgba(255,255,255,0.25);
+}
+.foot-logo span { color: var(--teal-mid); }
+.foot-copy { font-size: 0.72rem; color: rgba(255,255,255,0.15); font-weight: 300; }
+
+/* ───── ANIMATIONS ───── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.65s, transform 0.65s;
+}
+.reveal.on { opacity: 1; transform: none; }
+
+/* Typewriter */
+@keyframes blink { 0%,100%{border-color: var(--teal);} 50%{border-color: transparent;} }
+.name-typed { animation: blink 0.75s step-end infinite; }
+</style>
 </head>
-
 <body>
 
-    <!-- Hero Section -->
-    <section class="hero-section py-5" id="home">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 text-center text-lg-start">
-                    <h3 class="text-muted mb-2">Hello, I'm</h3>
-                    <h1 class="display-3 mb-3">Ifeoluwa Odubiyi</h1>
-                    <h4 class="typed-text-output d-inline"></h4>
-                    <div class="typed-text d-none">Full-Stack Developer, Software Engineer, Cloud Enthusiast, Team
-                        Leader</div>
-                    <p class="mt-4">Seasoned software engineer passionate about building scalable and impactful
-                        applications. Skilled in leading teams, mentoring developers, and delivering robust solutions.
-                    </p>
-                    <div class="mt-4">
-                        <a href="https://github.com/T0niadev" class="btn btn-primary me-2"><i
-                                class="fab fa-github me-1"></i>GitHub</a>
-                        <a href="https://www.linkedin.com/in/ifeoluwa-odubiyi-6572431a0"
-                            class="btn btn-secondary me-2"><i class="fab fa-linkedin me-1"></i>LinkedIn</a>
-                        <a href="file/resume.pdf" class="btn btn-primary" download><i
-                                class="fa fa-download me-1"></i>Resume</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-center">
-                    <img src="img/ifeoluwa.jpg" class="img-fluid rounded-circle shadow" style="width:300px;"
-                        alt="Ifeoluwa Odubiyi">
-                </div>
-            </div>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Ife<span>oluwa</span></div>
+  <ul class="nav-links">
+    <li><a href="#what">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:odubiyiifeolu@gmail.com" class="nav-hire">Hire Me →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <h1 class="hero-greeting">
+      Hey There,<br>
+      <span class="name-line">I'm <span class="name-typed" id="typed-name"></span></span>
+    </h1>
+    <div class="hero-tagline-box">
+      <p>I build <strong>beautifully scalable</strong> things,</p>
+      <p>and I love what I do.</p>
+    </div>
+    <a href="mailto:odubiyiifeolu@gmail.com" class="hero-email">odubiyiifeolu@gmail.com</a>
+    <div class="hero-exp-badge">
+      <span class="exp-num">5</span>
+      <div class="exp-meta">
+        <span>Years</span>
+        <span>Experience</span>
+      </div>
+    </div>
+    <div class="cert-badge">
+      <span class="cert-icon">◈</span>
+      Oracle<br>Certified<br>Cloud<br>Associate
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-bg-blob"><div class="blob-shape"></div></div>
+    <div class="hero-photo">
+      <img src="https://playful-queijadas-e4ad46.netlify.app/img/ifeoluwa.jpg" alt="Ifeoluwa Odubiyi" />
+    </div>
+    <div class="hero-right-info">
+      <span class="info-pill">MSc IT · 5.0 GPA</span>
+      <span class="info-pill gold">Best Graduate · UNILAG</span>
+      <span class="info-pill">Covenant Uni · 1st Class</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES STRIP -->
+<div class="services-strip reveal">
+  <h2 class="services-heading">What do<br>I <em>build?</em></h2>
+  <div class="services-cards">
+    <div class="service-card">
+      <div class="service-icon">⬡</div>
+      <div class="service-name">Web Applications</div>
+      <div class="service-count">Scalable · Secure · Fast</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◱</div>
+      <div class="service-name">Mobile Apps</div>
+      <div class="service-count">Flutter · React Native</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">◈</div>
+      <div class="service-name">Cloud & DevOps</div>
+      <div class="service-count">Azure · AWS · CI/CD</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT I DO -->
+<section class="what-section" id="what">
+  <div class="reveal">
+    <h2 class="what-heading">What do<br>I <em>help</em> with?</h2>
+    <p class="what-text">
+      I design, implement, and support high-quality web and mobile applications.
+      I lead teams, mentor developers, and deliver robust solutions for
+      businesses across Nigeria and internationally.
+    </p>
+    <p class="what-text">
+      With a rare background spanning Chemical Engineering and Information Technology,
+      I bring a systems-thinking approach to every product I build.
+    </p>
+    <div class="what-points">
+      <div class="what-point"><div class="point-dot"></div><span class="point-text">Team Leadership & Developer Mentorship</span></div>
+      <div class="what-point"><div class="point-dot"></div><span class="point-text">Scalable, Secure Web & Mobile Platforms</span></div>
+      <div class="what-point"><div class="point-dot"></div><span class="point-text">Event Management & Ticketing Systems</span></div>
+      <div class="what-point"><div class="point-dot"></div><span class="point-text">Enterprise Clients: Sterling Oil, OLAM, CWAY</span></div>
+    </div>
+  </div>
+  <div class="skills-right reveal">
+    <div class="skill-group-card">
+      <div class="sgc-head"><span class="sgc-label">Full-Stack Development</span></div>
+      <div class="sgc-pills">
+        <span class="sgc-pill">PHP</span><span class="sgc-pill">Laravel</span>
+        <span class="sgc-pill">VueJS</span><span class="sgc-pill">React</span>
+        <span class="sgc-pill">JavaScript</span><span class="sgc-pill">Tailwind</span>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="sgc-head"><span class="sgc-label">Mobile</span></div>
+      <div class="sgc-pills">
+        <span class="sgc-pill">Flutter</span><span class="sgc-pill">React Native</span>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="sgc-head"><span class="sgc-label">Database & APIs</span></div>
+      <div class="sgc-pills">
+        <span class="sgc-pill">MySQL</span><span class="sgc-pill">PostgreSQL</span>
+        <span class="sgc-pill">NoSQL</span><span class="sgc-pill">REST APIs</span>
+      </div>
+    </div>
+    <div class="skill-group-card">
+      <div class="sgc-head"><span class="sgc-label">Cloud & DevOps</span></div>
+      <div class="sgc-pills">
+        <span class="sgc-pill">Azure</span><span class="sgc-pill">AWS</span>
+        <span class="sgc-pill">CI/CD</span><span class="sgc-pill">Linux Admin</span>
+        <span class="sgc-pill">OAuth</span><span class="sgc-pill">Pen Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="exp-section" id="experience">
+  <div class="section-label-row reveal">
+    <span class="s-tag">Career</span>
+    <h2 class="s-title">Work <em>Experience</em></h2>
+  </div>
+  <div class="exp-table">
+    <div class="exp-row reveal">
+      <div class="exp-date"><span>2023 – Present</span>Lagos, Nigeria</div>
+      <div class="exp-middle">
+        <div class="exp-r-role">Lead Full-Stack Developer</div>
+        <div class="exp-r-company"><strong>Virdi</strong> &nbsp;·&nbsp; Nigeria</div>
+      </div>
+      <div class="exp-node-right"><div class="exp-dot active"></div></div>
+    </div>
+    <div class="exp-row reveal">
+      <div class="exp-date"><span>2021 – 2023</span>Lagos, Nigeria</div>
+      <div class="exp-middle">
+        <div class="exp-r-role">Developer / DevOps Engineer</div>
+        <div class="exp-r-company"><strong>Enterprise Business Information System</strong> &nbsp;·&nbsp; Lagos</div>
+      </div>
+      <div class="exp-node-right"><div class="exp-dot"></div></div>
+    </div>
+    <div class="exp-row reveal">
+      <div class="exp-date"><span>2020</span>Nigeria</div>
+      <div class="exp-middle">
+        <div class="exp-r-role">Process Control Intern</div>
+        <div class="exp-r-company"><strong>Lafarge Africa</strong> &nbsp;·&nbsp; Nigeria</div>
+      </div>
+      <div class="exp-node-right"><div class="exp-dot"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS (replaces Education) -->
+<section class="credentials-section" id="education">
+  <div class="section-label-row reveal">
+    <span class="s-tag">Credentials</span>
+    <h2 class="s-title">Academic &amp; <em>Certifications</em></h2>
+  </div>
+  <div class="creds-grid">
+    <div class="cred-card reveal">
+      <div class="cred-year">2025</div>
+      <div class="cred-type gold-t">Postgraduate · Best Graduate</div>
+      <div class="cred-line gold"></div>
+      <h3 class="cred-title">M.Sc. Information Technology</h3>
+      <p class="cred-sub">University of Lagos</p>
+      <p class="cred-note">2023 – 2025 · First Class Honours</p>
+      <span class="cred-award">5.0 GPA · Best Graduate</span>
+    </div>
+    <div class="cred-card reveal">
+      <div class="cred-year">2021</div>
+      <div class="cred-type">Undergraduate · First Class</div>
+      <div class="cred-line"></div>
+      <h3 class="cred-title">B.Eng. Chemical Engineering</h3>
+      <p class="cred-sub">Covenant University, Nigeria</p>
+      <p class="cred-note">2016 – 2021 · First Class Honours</p>
+    </div>
+    <div class="cred-card reveal">
+      <div class="cred-year">2023</div>
+      <div class="cred-type">Professional Certification</div>
+      <div class="cred-line"></div>
+      <h3 class="cred-title">Oracle Cloud Infrastructure Associate</h3>
+      <p class="cred-sub">Oracle Corporation</p>
+      <p class="cred-note">2023 · Active</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-label-row reveal">
+    <span class="s-tag">Portfolio</span>
+    <h2 class="s-title">Selected <em>Works</em></h2>
+  </div>
+  <div class="projects-grid">
+
+    <a href="https://quickplana.com" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://quickplana.com&screenshot=true&meta=false&embed=screenshot.url" alt="QuickPlana" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">QuickPlana</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">Event planning, ticketing, budgeting &amp; full management platform. Powers digital menus for Burbuz Lounge and client spaces.</p>
+        <div class="proj-pill-row"><span class="pp">Laravel</span><span class="pp">VueJS</span><span class="pp">Payments</span></div>
+      </div>
+    </a>
 
-    <!-- About Section -->
-    <section class="py-6" id="about">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h2 class="mb-3">About Me</h2>
-                    <p>With 5+ years of experience, I design, implement, and support high-quality web and mobile
-                        applications. I lead teams, mentor developers, and ensure scalable, secure solutions for
-                        businesses including Sterling Oil, OLAM Industries, and CWAY Group.</p>
-                    <ul>
-                        <li>Team Leadership & Mentorship</li>
-                        <li>Scalable & Secure Web Applications</li>
-                        <li>Cloud Integration & DevOps</li>
-                        <li>Event Management & Ticketing Platforms</li>
-                    </ul>
-                </div>
-                <div class="col-lg-6">
-                    <img src="img/des2.jpg" class="img-fluid rounded shadow" alt="Work Experience">
-                </div>
-            </div>
+    <a href="https://afripods.africa" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://afripods.africa&screenshot=true&meta=false&embed=screenshot.url" alt="Afripods" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">Afripods</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">Podcast hosting &amp; monetization platform built specifically for African creators and audiences.</p>
+        <div class="proj-pill-row"><span class="pp">Streaming</span><span class="pp">Monetization</span></div>
+      </div>
+    </a>
 
-    <!-- Experience & Education Section -->
-    <section class="py-6" id="experience-education">
-        <div class="container">
-            <h2 class="mb-5 text-center">Experience & Education</h2>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <ul class="nav nav-pills rounded-3 border border-2 border-primary mb-4 d-flex" role="tablist">
-                        <li class="nav-item w-50">
-                            <button class="nav-link w-100 py-3 fs-6 active fw-bold" id="exp-tab" data-bs-toggle="pill"
-                                data-bs-target="#experience-content" type="button" role="tab"
-                                aria-controls="experience-content" aria-selected="true">
-                                <i class="fas fa-briefcase me-2"></i>Experience
-                            </button>
-                        </li>
-                        <li class="nav-item w-50">
-                            <button class="nav-link w-100 py-3 fs-6 fw-bold" id="edu-tab" data-bs-toggle="pill"
-                                data-bs-target="#education-content" type="button" role="tab"
-                                aria-controls="education-content" aria-selected="false">
-                                <i class="fas fa-graduation-cap me-2"></i>Education
-                            </button>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="experience-content" class="tab-pane fade show active p-0" role="tabpanel"
-                            aria-labelledby="exp-tab">
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Lead Full-Stack Developer</h5>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023 -
-                                            Present
-                                        </p>
-                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Virdi,
-                                            Nigeria
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Developer/DevOps Engineer</h5>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2021 -
-                                            2023
-                                        </p>
-                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Enterprise
-                                            Business
-                                            Information System, Lagos</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Process Control Intern</h5>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2020</p>
-                                        <p class="text-muted mb-0"><i class="fas fa-map-marker-alt me-2"></i>Lafarge
-                                            Africa,
-                                            Nigeria</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="education-content" class="tab-pane fade p-0" role="tabpanel" aria-labelledby="edu-tab">
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Master's in Information Technology</h5>
-                                        <p class="badge bg-success mb-2">First Class Honors- Best Graduating Student
-                                            (5.0)</p>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023 -
-                                            2025</p>
-                                        <p class="text-muted mb-0"><i class="fas fa-university me-2"></i>University of
-                                            Lagos</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Bachelor's in Chemical Engineering</h5>
-                                        <p class="badge bg-success mb-2">First Class Honors</p>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2016 -
-                                            2021</p>
-                                        <p class="text-muted mb-0"><i class="fas fa-university me-2"></i>Covenant
-                                            University,
-                                            Nigeria</p>
-                                    </div>
-                                </div>
-                                <div class="timeline-item">
-                                    <div class="timeline-marker"></div>
-                                    <div class="timeline-content">
-                                        <h5 class="fw-bold mb-1">Oracle Cloud Infrastructure Associate</h5>
-                                        <p class="badge bg-info mb-2">Certification</p>
-                                        <p class="text-primary fw-600 mb-1"><i class="fas fa-calendar me-2"></i>2023</p>
-                                        <p class="text-muted mb-0"><i class="fas fa-certificate me-2"></i>Oracle</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <a href="https://www.warblelive.io" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://warblelive.io&screenshot=true&meta=false&embed=screenshot.url" alt="WarbeLive" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">WarbeLive</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">End-to-end e-ticketing &amp; live event management platform for organizers and attendees.</p>
+        <div class="proj-pill-row"><span class="pp">E-Ticketing</span><span class="pp">React</span></div>
+      </div>
+    </a>
 
-    <!-- Skills Section -->
-    <section class="py-6 bg-light" id="skills">
-        <div class="container">
-            <h2 class="mb-5 text-center">Skills & Expertise</h2>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="skills-card">
-                        <i class="fas fa-code"></i><strong>Full Stack Development:</strong> PHP, Laravel, VueJS, React,
-                        JavaScript, HTML, CSS, Tailwind, Bootstrap
-                    </div>
-                    <div class="skills-card">
-                        <i class="fas fa-mobile-alt"></i><strong>Mobile & Cross-Platform:</strong> Flutter, React Native
-                    </div>
-                    <div class="skills-card">
-                        <i class="fas fa-database"></i><strong>Database & Backend:</strong> MySQL, PostgreSQL, NoSQL,
-                        REST APIs
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="skills-card">
-                        <i class="fas fa-cloud"></i><strong>Cloud & DevOps:</strong> Azure, AWS, CI/CD, Linux Server
-                        Administration
-                    </div>
-                    <div class="skills-card">
-                        <i class="fas fa-shield-alt"></i><strong>Testing & Security:</strong> Unit Testing, OAuth,
-                        Performance Monitoring, Penetration Testing
-                    </div>
-                    <div class="skills-card">
-                        <i class="fas fa-users"></i><strong>Leadership & Management:</strong> Team Leadership,
-                        Mentorship, Project Planning, Stakeholder Collaboration
-                    </div>
-                </div>
-            </div>
+    <a href="https://talentgen.co" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://talentgen.co&screenshot=true&meta=false&embed=screenshot.url" alt="TalentGen" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">TalentGen</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">Intelligent talent sourcing &amp; recruitment platform connecting companies with top-tier candidates.</p>
+        <div class="proj-pill-row"><span class="pp">HR Tech</span><span class="pp">Recruitment</span></div>
+      </div>
+    </a>
 
-    <!-- Projects Section -->
-    <section class="py-6" id="projects">
-        <div class="container">
-            <h2 class="mb-5 text-center">Projects</h2>
-            <div class="row g-4">
-                <!-- Example Project -->
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/eventa.png" class="img-fluid" alt="Eventa.ng">
-                            <div class="portfolio-btn">
-                                <a href="https://eventa.ng" class="btn btn-sm btn-primary mx-1" target="_blank"><i
-                                        class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">Eventa.ng</h5>
-                        <p>Event planning, ticketing, budgeting, and management platform.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/pro6.png" class="img-fluid" alt="BRF Africa">
-                            <div class="portfolio-btn">
-                                <a href="https://brfafrica.org" class="btn btn-sm btn-primary mx-1" target="_blank"><i
-                                        class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">Maternal Health Sensitization Foundation</h5>
-                        <p>Platform for awareness, education, and donation management.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/pro10.png" class="img-fluid" alt="HRMS">
-                            <div class="portfolio-btn">
-                                <a href="https://github.com/T0niadev/EDMS" class="btn btn-sm btn-primary mx-1"
-                                    target="_blank"><i class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">Electronic Document Management System</h5>
-                        <p>Streamlined HR processes with automated workflows for Nigerian banks.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/pro7.png" class="img-fluid" alt="lagoSmart Live Support System">
-                            <div class="portfolio-btn">
-                                <button class="btn btn-sm btn-primary mx-1" data-bs-toggle="modal"
-                                    data-bs-target="#project7Info"><i class="fa fa-info"></i></button>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">lagoSmart Live Support System</h5>
-                        <p>Live support system with ticket generation and real-time communication.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/pro8.png" class="img-fluid" alt="INEC VETS Learning Management System">
-                            <div class="portfolio-btn">
-                                <a href="vets.inec.mws.ng" class="btn btn-sm btn-primary mx-1" target="_blank"><i
-                                        class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">INEC VETS Learning Management System</h5>
-                        <p>LMS for INEC staff training and course management.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="project-card">
-                        <div class="portfolio-img">
-                            <img src="img/hrms1.png" class="img-fluid" alt="Human Resource Management System">
-                            <div class="portfolio-btn">
-                                <a href="nuray.in" class="btn btn-sm btn-primary mx-1" target="_blank"><i
-                                        class="fa fa-link"></i></a>
-                            </div>
-                        </div>
-                        <h5 class="mt-2">Human Resource Management System</h5>
-                        <p>Comprehensive HRMS for employee management and payroll.</p>
-                    </div>
-                </div>
-            </div>
+    <a href="https://www.askadoc4advice.com" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://askadoc4advice.com&screenshot=true&meta=false&embed=screenshot.url" alt="AskADoc4Advice" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">AskADoc4Advice</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">Swiss-based telemedicine &amp; medical guidance platform connecting patients with certified physicians.</p>
+        <div class="proj-pill-row"><span class="pp">HealthTech</span><span class="pp">Laravel</span></div>
+      </div>
+    </a>
 
-    <!-- Contact Section -->
-    <section class="py-6 bg-light" id="contact">
-        <div class="container text-center">
-            <h2 class="mb-4">Get in Touch</h2>
-            <p>Email: <a href="mailto:odubiyiifeolu@gmail.com">odubiyiifeolu@gmail.com</a> | Phone: +2349129309446
-            </p>
-            <div>
-                <a href="https://github.com/T0niadev" class="me-2"><i class="fab fa-github fa-2x"></i></a>
-                <a href="https://www.linkedin.com/in/ifeoluwa-odubiyi-6572431a0" class="me-2"><i
-                        class="fab fa-linkedin fa-2x"></i></a>
-            </div>
+    <a href="https://manaximmigration.com" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://manaximmigration.com&screenshot=true&meta=false&embed=screenshot.url" alt="Manax Immigration" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">Manax Immigration</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
-    </section>
+        <p class="proj-blurb">Immigration consultation &amp; services management platform for visa and relocation guidance.</p>
+        <div class="proj-pill-row"><span class="pp">Consulting</span><span class="pp">Web App</span></div>
+      </div>
+    </a>
 
-    <!-- Project 7 Info Modal -->
-    <div class="modal fade" id="project7Info" tabindex="-1" aria-labelledby="project7Label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="project7Label">lagoSmart Live Support System</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>This Live Support System is designed for lagoSmart to enhance customer service efficiency by
-                        generating support tickets for user inquiries and automatically assigning them to available
-                        agents. This ensures that each request is handled promptly and by the most suitable
-                        representative. </p>
-                    <p>Users can communicate with agents in real-time through a user-friendly interface, allowing for
-                        quick resolutions and effective interaction. The system's streamlined process not only improves
-                        response times but also elevates overall customer satisfaction by providing tailored support
-                        that meets users' needs.</p>
-                </div>
-            </div>
+    <a href="https://ascenttechhub.africa" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://ascenttechhub.africa&screenshot=true&meta=false&embed=screenshot.url" alt="Ascent TechHub" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">Ascent TechHub</h3>
+          <span class="proj-link-icon">↗</span>
         </div>
+        <p class="proj-blurb">African tech innovation hub &amp; startup accelerator platform driving the next generation of founders.</p>
+        <div class="proj-pill-row"><span class="pp">Community</span><span class="pp">Startups</span></div>
+      </div>
+    </a>
+
+    <a href="https://quickplana.com/c/burbuz-lounge" target="_blank" class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="https://api.microlink.io?url=https://quickplana.com/c/burbuz-lounge&screenshot=true&meta=false&embed=screenshot.url" alt="Burbuz Lounge Menu" loading="lazy" />
+        <div class="proj-thumb-overlay"></div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">Burbuz Lounge Menu</h3>
+          <span class="proj-link-icon">↗</span>
+        </div>
+        <p class="proj-blurb">Digital menu &amp; in-venue ordering system for Burbuz Lounge — customers order from table in seconds.</p>
+        <div class="proj-pill-row"><span class="pp">QuickPlana</span><span class="pp">Digital Menu</span></div>
+      </div>
+    </a>
+
+    <div class="proj-card reveal" style="cursor:default;">
+      <div class="proj-thumb" style="background:var(--ink);display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'DM Serif Display',serif;font-size:2.5rem;color:rgba(255,255,255,0.08);">LagoSmart</span>
+      </div>
+      <div class="proj-body">
+        <div class="proj-top">
+          <h3 class="proj-title">LagoSmart Support</h3>
+        </div>
+        <p class="proj-blurb">Live support system with real-time communication, agent routing &amp; automatic ticket generation.</p>
+        <div class="proj-pill-row"><span class="pp">Real-time</span><span class="pp">WebSockets</span><span class="pp">Enterprise</span></div>
+      </div>
     </div>
 
-    <!-- Project 8 Info Modal -->
-    <div class="modal fade" id="project8Info" tabindex="-1" aria-labelledby="project8Label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="project8Label">INEC VETS Learning Management System</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>This Learning Management System (LMS) is specifically designed for the staff of the Independent
-                        National Electoral Commission (INEC) in Nigeria. The platform provides an intuitive interface
-                        for users to access essential training materials, complete necessary courses, and receive grades
-                        for their progress. By utilizing this system, INEC staff can familiarize themselves with crucial
-                        processes, enhancing their skills and knowledge to effectively contribute to their roles within
-                        the organization.</p>
-                </div>
-            </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="section-label-row reveal">
+    <span class="s-tag">Testimonials</span>
+    <h2 class="s-title">What clients <em>say</em></h2>
+  </div>
+  <div class="testi-intro reveal">
+    <p>Real words from real clients. Ifeoluwa has built platforms used by thousands across Nigeria and beyond.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <span class="testi-open-quote">"</span>
+      <p class="testi-quote">I needed a digital menu for Burbuz Lounge urgently — Ifeoluwa had it live on QuickPlana within minutes. My customers can now browse the full menu and place orders right from their phones. It has been absolutely faultless.</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-teal">BB</div>
+        <div>
+          <div class="testi-name">Tunde Adebisi</div>
+          <div class="testi-role">Owner <span class="testi-company">Burbuz Lounge</span></div>
         </div>
+      </div>
     </div>
-
-    <!-- Project 9 Info Modal -->
-    <div class="modal fade" id="project9Info" tabindex="-1" aria-labelledby="project9Label" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="project9Label">Human Resource Management System</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>The Human Resource Management System (HRMS) was designed to streamline core HR processes for
-                        organizations. It provides comprehensive modules for employee management, leave tracking,
-                        payroll processing, and attendance monitoring, ensuring efficient and accurate HR operations.
-                    </p>
-                    <p>The HRMS enables HR teams to manage employee records, automate leave requests and approvals,
-                        process payroll seamlessly, and track attendance in real time. With robust reporting and
-                        analytics, organizations can gain insights into workforce trends and maintain compliance with HR
-                        policies.</p>
-                </div>
-            </div>
+    <div class="testi-card alt reveal">
+      <span class="testi-open-quote">"</span>
+      <p class="testi-quote">Ifeoluwa built the Birthright Foundation website from scratch. The site perfectly captures our mission and has been instrumental in driving awareness and donor engagement. A truly outstanding developer with a keen eye for purpose-driven design.</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-amber">BF</div>
+        <div>
+          <div class="testi-name">Adaeze Nwosu</div>
+          <div class="testi-role">Executive Director <span class="testi-company">Birthright Foundation</span></div>
         </div>
+      </div>
     </div>
+    <div class="testi-card reveal">
+      <span class="testi-open-quote">"</span>
+      <p class="testi-quote">A rare engineer who thinks like a product owner. The QuickPlana platform he built is used by thousands of event organisers monthly and continues to scale without a hitch.</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-teal">FM</div>
+        <div>
+          <div class="testi-name">Fatima Musa</div>
+          <div class="testi-role">Founder <span class="testi-company">Virdi</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card alt reveal">
+      <span class="testi-open-quote">"</span>
+      <p class="testi-quote">His DevOps expertise transformed our entire deployment pipeline. What used to take days now takes minutes. The stability and performance improvements have been remarkable — truly exceptional talent.</p>
+      <div class="testi-author">
+        <div class="testi-avatar av-amber">KE</div>
+        <div>
+          <div class="testi-name">Kingsley Eze</div>
+          <div class="testi-role">Director <span class="testi-company">EBIS Lagos</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script>
-        const typedText = document.querySelector('.typed-text-output');
-        const textArray = document.querySelector('.typed-text').textContent.split(',').map(s => s.trim());
-        let index = 0,
-            charIndex = 0,
-            currentText = '',
-            isDeleting = false;
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-left reveal">
+    <h2 class="contact-heading">Let's make something<br><em>remarkable together.</em></h2>
+    <p class="contact-sub">
+      Open to full-time roles, consulting, and interesting projects.
+      Based in Lagos — available globally.
+    </p>
+    <a href="mailto:odubiyiifeolu@gmail.com" class="contact-cta">Say Hello →</a>
+  </div>
+  <div class="contact-right reveal">
+    <div style="font-size:0.6rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:0.5rem;">Get in Touch</div>
+    <a href="mailto:odubiyiifeolu@gmail.com" class="contact-info-card">
+      <div class="c-icon">✉</div>
+      <div><div class="c-label">Email</div><div class="c-val">odubiyiifeolu@gmail.com</div></div>
+    </a>
+    <a href="tel:+2349129309446" class="contact-info-card">
+      <div class="c-icon">☎</div>
+      <div><div class="c-label">Phone</div><div class="c-val">+234 912 930 9446</div></div>
+    </a>
+    <div class="contact-info-card" style="cursor:default;">
+      <div class="c-icon">◎</div>
+      <div><div class="c-label">Location</div><div class="c-val">Lagos, Nigeria</div></div>
+    </div>
+  </div>
+</section>
 
-        function type() {
-            if (index >= textArray.length) index = 0;
-            currentText = textArray[index];
-            if (!isDeleting) {
-                typedText.textContent = currentText.slice(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentText.length) {
-                    isDeleting = true;
-                    setTimeout(type, 1500);
-                    return;
-                }
-            } else {
-                typedText.textContent = currentText.slice(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    index++;
-                }
-            }
-            setTimeout(type, isDeleting ? 50 : 100);
-        }
-        type();
-    </script>
+<!-- FOOTER -->
+<footer>
+  <div class="foot-logo">Ife<span>oluwa</span> Odubiyi</div>
+  <div class="foot-copy">© 2025 · Lead Full-Stack Developer</div>
+</footer>
+
+<script>
+// Typewriter effect
+const fullName = "Ifeoluwa Odubiyi";
+const el = document.getElementById('typed-name');
+let i = 0;
+function type() {
+  if (i <= fullName.length) {
+    el.textContent = fullName.slice(0, i);
+    i++;
+    setTimeout(type, i === 1 ? 600 : 70);
+  } else {
+    // stop blinking after done
+    setTimeout(() => { el.style.borderRight = '3px solid transparent'; }, 1500);
+  }
+}
+setTimeout(type, 400);
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      const siblings = Array.from(e.target.parentElement.children);
+      const idx = siblings.indexOf(e.target);
+      setTimeout(() => e.target.classList.add('on'), idx * 80);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
-
 </html>
