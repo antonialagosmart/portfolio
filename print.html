@@ -870,6 +870,84 @@ footer {
   .testimonials-section { padding: 2.5rem 1.25rem; }
 }
 </style>
+<style>
+@media print {
+  body {
+    background: var(--cream) !important;
+    color: var(--ink) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    font-size: 12px;
+    margin: 0;
+  }
+  nav {
+    position: static !important;
+    box-shadow: none !important;
+    background: rgba(244,237,225,1) !important;
+    border-bottom: 1px solid var(--border) !important;
+    page-break-after: avoid;
+  }
+  .nav-hire, .nav-toggle { display: none !important; }
+  .hero, .services-strip, .what-section, .exp-section, .credentials-section, .projects-section, .testimonials-section, .contact-section, footer {
+    padding: 1.5rem 1.5rem !important;
+    box-shadow: none !important;
+    background: inherit !important;
+    page-break-inside: avoid;
+  }
+  .hero {
+    min-height: 0 !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+  .hero-photo {
+    border: 3px solid var(--teal) !important;
+    box-shadow: none !important;
+    max-width: 180px !important;
+    margin: 0 auto !important;
+  }
+  .hero-greeting, .what-heading, .s-title, .contact-heading {
+    font-size: 1.5rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-tagline-box, .what-text, .proj-blurb, .testi-quote, .contact-sub {
+    font-size: 1rem !important;
+    color: var(--gray) !important;
+  }
+  .exp-row, .cred-card, .proj-card, .testi-card {
+    box-shadow: none !important;
+    border-radius: 2px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 0.5rem !important;
+    background: var(--white) !important;
+    page-break-inside: avoid;
+  }
+  .projects-grid, .creds-grid, .testi-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.5rem !important;
+  }
+  .proj-thumb, .proj-thumb img {
+    height: 80px !important;
+    object-fit: cover !important;
+  }
+  .proj-link-icon, .testi-avatar {
+    display: none !important;
+  }
+  .reveal, .reveal.on {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+  a {
+    color: var(--teal) !important;
+    text-decoration: underline !important;
+    word-break: break-all;
+  }
+  @page {
+    margin: 0.5cm;
+    size: A4 portrait;
+  }
+}
+</style>
 </head>
 <body>
 
@@ -1111,22 +1189,6 @@ footer {
   </div>
   <div class="projects-grid">
 
-
-      <a href="https://www.askadoc4advice.com" target="_blank" class="proj-card reveal">
-        <div class="proj-thumb">
-          <img src="https://api.microlink.io?url=https://askadoc4advice.com&screenshot=true&meta=false&embed=screenshot.url" alt="AskADoc4Advice" loading="lazy" />
-          <div class="proj-thumb-overlay"></div>
-        </div>
-        <div class="proj-body">
-          <div class="proj-top">
-            <h3 class="proj-title">AskADoc4Advice</h3>
-            <span class="proj-link-icon">↗</span>
-          </div>
-          <p class="proj-blurb">Swiss-based telemedicine &amp; medical guidance platform connecting patients with certified physicians.</p>
-          <div class="proj-pill-row"><span class="pp">HealthTech</span><span class="pp">Artificial Intelligence</span></div>
-        </div>
-    </a>
-
     <a href="https://quickplana.com" target="_blank" class="proj-card reveal">
       <div class="proj-thumb">
         <img src="https://api.microlink.io?url=https://quickplana.com&screenshot=true&meta=false&embed=screenshot.url" alt="QuickPlana" loading="lazy" />
@@ -1157,7 +1219,20 @@ footer {
       </div>
     </a>
 
-    
+      <a href="https://www.askadoc4advice.com" target="_blank" class="proj-card reveal">
+        <div class="proj-thumb">
+          <img src="https://api.microlink.io?url=https://askadoc4advice.com&screenshot=true&meta=false&embed=screenshot.url" alt="AskADoc4Advice" loading="lazy" />
+          <div class="proj-thumb-overlay"></div>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top">
+            <h3 class="proj-title">AskADoc4Advice</h3>
+            <span class="proj-link-icon">↗</span>
+          </div>
+          <p class="proj-blurb">Swiss-based telemedicine &amp; medical guidance platform connecting patients with certified physicians.</p>
+          <div class="proj-pill-row"><span class="pp">HealthTech</span><span class="pp">Artificial Intelligence</span></div>
+        </div>
+      </a>
 
     <a href="https://www.warblelive.io" target="_blank" class="proj-card reveal">
       <div class="proj-thumb">
